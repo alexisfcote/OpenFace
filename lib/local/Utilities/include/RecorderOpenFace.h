@@ -50,6 +50,14 @@
 #ifdef _WIN32 
 	// For speeding up writing
 	#include "tbb/task_group.h"
+
+	// streaming only available on Windows
+	#include "streaming.h"
+	// fix nullptr
+	#define nullptr __nullptr
+	#include "json.hpp"
+	#undef nullptr
+	using json = nlohmann::json;
 #else
 	#include <thread>
 #endif
@@ -188,6 +196,10 @@ namespace Utilities
 #ifdef _WIN32 
 		// For keeping track of tasks
 		tbb::task_group writing_threads;
+
+		// For streaming data
+		streaming::Streaming stream;
+
 #else
 		std::thread video_writing_thread;
 		std::thread aligned_writing_thread;
