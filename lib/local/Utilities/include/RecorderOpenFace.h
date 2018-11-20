@@ -13,19 +13,19 @@
 //       reports and manuals, must cite at least one of the following works:
 //
 //       OpenFace 2.0: Facial Behavior Analysis Toolkit
-//       Tadas Baltrušaitis, Amir Zadeh, Yao Chong Lim, and Louis-Philippe Morency
+//       Tadas Baltruï¿½aitis, Amir Zadeh, Yao Chong Lim, and Louis-Philippe Morency
 //       in IEEE International Conference on Automatic Face and Gesture Recognition, 2018  
 //
 //       Convolutional experts constrained local model for facial landmark detection.
-//       A. Zadeh, T. Baltrušaitis, and Louis-Philippe Morency,
+//       A. Zadeh, T. Baltruï¿½aitis, and Louis-Philippe Morency,
 //       in Computer Vision and Pattern Recognition Workshops, 2017.    
 //
 //       Rendering of Eyes for Eye-Shape Registration and Gaze Estimation
-//       Erroll Wood, Tadas Baltrušaitis, Xucong Zhang, Yusuke Sugano, Peter Robinson, and Andreas Bulling 
+//       Erroll Wood, Tadas Baltruï¿½aitis, Xucong Zhang, Yusuke Sugano, Peter Robinson, and Andreas Bulling 
 //       in IEEE International. Conference on Computer Vision (ICCV),  2015 
 //
 //       Cross-dataset learning and person-specific normalisation for automatic Action Unit detection
-//       Tadas Baltrušaitis, Marwa Mahmoud, and Peter Robinson 
+//       Tadas Baltruï¿½aitis, Marwa Mahmoud, and Peter Robinson 
 //       in Facial Expression Recognition and Analysis Challenge, 
 //       IEEE International Conference on Automatic Face and Gesture Recognition, 2015 
 //
@@ -48,6 +48,17 @@
 #include <thread>
 
 #include <ConcurrentQueue.h>
+#ifdef _WIN32 
+	// streaming only available on Windows
+	#include "streaming.h"
+	// fix nullptr
+	#define nullptr __nullptr
+	#include "json.hpp"
+	#undef nullptr
+	using json = nlohmann::json;
+#else
+	#include <thread>
+#endif
 
 namespace Utilities
 {
@@ -184,8 +195,17 @@ namespace Utilities
 		cv::Mat aligned_face;
 		ConcurrentQueue<std::pair<std::string, cv::Mat> > aligned_face_queue;
 
+#ifdef _WIN32 
+		// For keeping track of tasks
+		tbb::task_group writing_threads;
+
+		// For streaming data
+		streaming::Streaming stream;
+
+#else
 		std::thread video_writing_thread;
 		std::thread aligned_writing_thread;
+#endif
 
 	};
 }

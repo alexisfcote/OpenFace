@@ -215,6 +215,9 @@ void RecorderOpenFace::PrepareRecording(const std::string& in_filename)
 	this->frame_number = 0;
 	this->tracked_writing_thread_started = false;
 	this->aligned_writing_thread_started = false;
+
+	#ifdef _WIN32 
+	#endif
 }
 
 RecorderOpenFace::RecorderOpenFace(const std::string in_filename, const RecorderOpenFaceParameters& parameters, std::vector<std::string>& arguments):video_writer(), params(parameters)
@@ -400,6 +403,31 @@ void RecorderOpenFace::WriteObservation()
 		aligned_face = cv::Mat();
 
 	}
+
+	#ifdef _WIN32 
+	json js;
+	js["face_id"] = face_id;
+	js["frame_number"] = frame_number;
+	js["timestamp"] = timestamp;
+	js["landmark_detection_success"] = landmark_detection_success;
+	js["landmark_detection_confidence"] = landmark_detection_confidence;
+	js["head_pose"] = head_pose[0];
+	js["gaze_angle"] = gaze_angle[0];
+	for (auto au_intensity : au_intensities)
+	{
+		js["au_intensities"][au_intensity.first] = au_intensity.second;
+	}
+	for (auto au_occurence : au_occurences)
+	{
+		js["au_occurences"][au_occurence.first] = au_occurence.second;
+	}
+
+	if (!stream.isOpen) {
+		stream.init(5555);
+	}
+
+	stream.SendMsg(js.dump());
+	#endif
 
 }
 
