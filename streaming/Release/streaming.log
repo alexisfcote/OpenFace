@@ -1,0 +1,10 @@
+﻿  streaming.cpp
+streaming.obj : error LNK2001: unresolved external symbol __imp__htons@4
+streaming.obj : error LNK2001: unresolved external symbol __imp__recv@16
+streaming.obj : error LNK2001: unresolved external symbol __imp__socket@12
+streaming.obj : error LNK2001: unresolved external symbol __imp__WSAStartup@8
+streaming.obj : error LNK2001: unresolved external symbol __imp__listen@8
+streaming.obj : error LNK2001: unresolved external symbol __imp__closesocket@4
+streaming.obj : error LNK2001: unresolved external symbol __imp__bind@12
+streaming.obj : error LNK2001: unresolved external symbol __imp__accept@12
+C:\Users\alfoc.ULAVAL\Desktop\OpenFace\Release\Streaming.exe : fatal error LNK1120: 8 unresolved externals

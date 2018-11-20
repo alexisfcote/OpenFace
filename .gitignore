@@ -100,3 +100,8 @@ lib/local/Utilities/Debug/
 lib/3rdParty/CameraEnumerator/Debug/
 lib/local/CppInerop/Debug/
 *.user
+
+*VC.*db
+gui/HeadPose-live/obj/
+lib/local/LandmarkDetector/model/
+x64/

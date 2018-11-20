@@ -1,0 +1,10 @@
+﻿  streaming.cpp
+streaming.obj : error LNK2019: unresolved external symbol __imp__accept@12 referenced in function "public: __thiscall Streaming::Streaming(int)" (??0Streaming@@QAE@H@Z)
+streaming.obj : error LNK2019: unresolved external symbol __imp__bind@12 referenced in function "public: __thiscall Streaming::Streaming(int)" (??0Streaming@@QAE@H@Z)
+streaming.obj : error LNK2019: unresolved external symbol __imp__closesocket@4 referenced in function "public: __thiscall Streaming::Streaming(int)" (??0Streaming@@QAE@H@Z)
+streaming.obj : error LNK2019: unresolved external symbol __imp__htons@4 referenced in function "public: __thiscall Streaming::Streaming(int)" (??0Streaming@@QAE@H@Z)
+streaming.obj : error LNK2019: unresolved external symbol __imp__listen@8 referenced in function "public: __thiscall Streaming::Streaming(int)" (??0Streaming@@QAE@H@Z)
+streaming.obj : error LNK2019: unresolved external symbol __imp__recv@16 referenced in function "public: __thiscall Streaming::Streaming(int)" (??0Streaming@@QAE@H@Z)
+streaming.obj : error LNK2019: unresolved external symbol __imp__socket@12 referenced in function "public: __thiscall Streaming::Streaming(int)" (??0Streaming@@QAE@H@Z)
+streaming.obj : error LNK2019: unresolved external symbol __imp__WSAStartup@8 referenced in function "public: __thiscall Streaming::Streaming(int)" (??0Streaming@@QAE@H@Z)
+C:\Users\alfoc.ULAVAL\Desktop\OpenFace\Debug\Streaming.exe : fatal error LNK1120: 8 unresolved externals
