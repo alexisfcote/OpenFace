@@ -101,3 +101,4 @@ lib/3rdParty/CameraEnumerator/Debug/
 lib/local/CppInerop/Debug/
 *.user
 lib/local/LandmarkDetector/model/patch_experts
+.vscode/
