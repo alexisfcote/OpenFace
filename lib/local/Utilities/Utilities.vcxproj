@@ -170,18 +170,21 @@
     <ClCompile Include="src\RecorderOpenFace.cpp" />
     <ClCompile Include="src\RecorderOpenFaceParameters.cpp" />
     <ClCompile Include="src\SequenceCapture.cpp" />
+    <ClCompile Include="src\Streaming.cpp" />
     <ClCompile Include="src\VisualizationUtils.cpp" />
     <ClCompile Include="src\Visualizer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ImageCapture.h" />
     <ClInclude Include="include\ImageManipulationHelpers.h" />
+    <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\RecorderCSV.h" />
     <ClInclude Include="include\RecorderHOG.h" />
     <ClInclude Include="include\RecorderOpenFace.h" />
     <ClInclude Include="include\RecorderOpenFaceParameters.h" />
     <ClInclude Include="include\RotationHelpers.h" />
     <ClInclude Include="include\SequenceCapture.h" />
+    <ClInclude Include="include\Streaming.h" />
     <ClInclude Include="include\VisualizationUtils.h" />
     <ClInclude Include="include\Visualizer.h" />
   </ItemGroup>
