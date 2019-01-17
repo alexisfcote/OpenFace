@@ -196,16 +196,13 @@ namespace Utilities
 		ConcurrentQueue<std::pair<std::string, cv::Mat> > aligned_face_queue;
 
 #ifdef _WIN32 
-		// For keeping track of tasks
-		tbb::task_group writing_threads;
-
 		// For streaming data
 		streaming::Streaming stream;
 
 #else
 		std::thread video_writing_thread;
 		std::thread aligned_writing_thread;
-#endif
+#endif // _WIN32
 
 	};
 }
