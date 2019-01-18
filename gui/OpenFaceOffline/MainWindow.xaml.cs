@@ -145,6 +145,8 @@ namespace OpenFaceOffline
         // Camera calibration parameters
         public float fx = -1, fy = -1, cx = -1, cy = -1;
 
+        public int streaming_port = 5555;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -172,6 +174,8 @@ namespace OpenFaceOffline
             landmark_detector = new CLNF(face_model_params);
 
             gaze_analyser = new GazeAnalyserManaged();
+
+            textBoxStreamingPort.Text = streaming_port.ToString();
 
         }
 
@@ -236,13 +240,20 @@ namespace OpenFaceOffline
             RecorderOpenFaceParameters rec_params = new RecorderOpenFaceParameters(true, reader.IsWebcam(),
                 Record2DLandmarks, Record3DLandmarks, RecordModelParameters, RecordPose, RecordAUs,
                 RecordGaze, RecordHOG, RecordTracked, RecordAligned, false,
-                reader.GetFx(), reader.GetFy(), reader.GetCx(), reader.GetCy(), reader.GetFPS());
+                reader.GetFx(), reader.GetFy(), reader.GetCx(), reader.GetCy(), reader.GetFPS(), streaming_port);
 
             RecorderOpenFace recorder = new RecorderOpenFace(reader.GetName(), rec_params, record_root);
 
             // For FPS tracking
             DateTime? startTime = CurrentTime;
             var lastFrameTime = CurrentTime;
+
+            // Update Streaming Status
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                StreamingStatus.Text = "On";
+            }
+            ));
 
             // Empty image would indicate that the stream is over
             while (!gray_frame.IsEmpty)
@@ -291,8 +302,9 @@ namespace OpenFaceOffline
             // Finalize the recording and flush to disk
             recorder.Close();
 
+
             // Post-process the AU recordings
-            if(RecordAUs)
+            if (RecordAUs)
             { 
                 face_analyser.PostProcessOutputFile(recorder.GetCSVFile());
             }
@@ -300,8 +312,8 @@ namespace OpenFaceOffline
             // Close the open video/webcam
             reader.Close();
 
-            EndMode();
 
+            EndMode();
         }
 
         private void ProcessIndividualImages(ImageReader reader)
@@ -358,7 +370,7 @@ namespace OpenFaceOffline
                 RecorderOpenFaceParameters rec_params = new RecorderOpenFaceParameters(false, false,
                     Record2DLandmarks, Record3DLandmarks, RecordModelParameters, RecordPose, RecordAUs,
                     RecordGaze, RecordHOG, RecordTracked, RecordAligned, true,
-                    reader.GetFx(), reader.GetFy(), reader.GetCx(), reader.GetCy(), 0);
+                    reader.GetFx(), reader.GetFy(), reader.GetCx(), reader.GetCy(), 0, streaming_port);
 
                 RecorderOpenFace recorder = new RecorderOpenFace(reader.GetName(), rec_params, record_root);
 
@@ -742,6 +754,10 @@ namespace OpenFaceOffline
                 AlignedFace.Source = null;
                 AlignedHOG.Source = null;
 
+                // Update Streaming Status
+                StreamingStatus.Text = "Off";
+
+
             }));
         }
 
@@ -1042,6 +1058,11 @@ namespace OpenFaceOffline
             }
             ((MenuItem)sender).IsChecked = true;
 
+        }
+
+        private void textBoxStreamingPort_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            streaming_port = Int32.Parse(textBoxStreamingPort.Text);
         }
 
         private void setCameraParameters_Click(object sender, RoutedEventArgs e)

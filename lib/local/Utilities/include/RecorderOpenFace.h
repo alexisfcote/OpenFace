@@ -56,8 +56,6 @@
 	#include "json.hpp"
 	#undef nullptr
 	using json = nlohmann::json;
-#else
-	#include <thread>
 #endif
 
 namespace Utilities
@@ -198,11 +196,9 @@ namespace Utilities
 #ifdef _WIN32 
 		// For streaming data
 		streaming::Streaming stream;
-
-#else
+#endif // _WIN32
 		std::thread video_writing_thread;
 		std::thread aligned_writing_thread;
-#endif // _WIN32
 
 	};
 }

@@ -19,9 +19,9 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="3*" MinHeight="220"/>
-            <RowDefinition Height="0.4*"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition MinHeight="220"/>
+            <RowDefinition Height="Auto" MinHeight="34"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Menu IsMainMenu="True" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
             <MenuItem Header="File">
@@ -188,12 +188,23 @@
                 </GroupBox>
             </StackPanel>
         </GroupBox>
-        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="180,0" Width="132">
             <Button VerticalAlignment="Top" IsEnabled="False" Click="PauseButton_Click" Name="PauseButton">Pause</Button>
             <Button VerticalAlignment="Top" IsEnabled="False" Click="StopButton_Click" Name="StopButton">Stop</Button>
             <Button VerticalAlignment="Top" IsEnabled="False" Click="SkipButton_Click" Name="NextFrameButton">>> 1</Button>
             <Button VerticalAlignment="Top" IsEnabled="False" Click="SkipButton_Click" Name="NextFiveFramesButton">>> 5</Button>
         </StackPanel>
-
+        <StatusBar x:Name="StatusBar" Grid.Row="3">
+            <StatusBarItem>
+                <TextBlock Text="Streaming Status:" />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Name="StreamingStatus" Text="" />
+            </StatusBarItem>
+        </StatusBar>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Label x:Name="label" Content="Streaming Port" HorizontalAlignment="Left" Width="131"/>
+            <TextBox x:Name="textBoxStreamingPort" HorizontalAlignment="Left" Margin="136,0,0,0" TextWrapping="Wrap" Width="52" TextChanged="textBoxStreamingPort_TextChanged"/>
+        </Grid>
     </Grid>
 </Window>

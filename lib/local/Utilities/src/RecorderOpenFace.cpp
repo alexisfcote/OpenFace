@@ -423,7 +423,7 @@ void RecorderOpenFace::WriteObservation()
 	}
 
 	if (!stream.isOpen) {
-		stream.init(5555);
+		stream.init(params.getStreamingPort());
 	}
 
 	stream.SendMsg(js.dump());

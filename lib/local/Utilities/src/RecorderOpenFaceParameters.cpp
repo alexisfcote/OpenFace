@@ -37,7 +37,7 @@ using namespace std;
 
 using namespace Utilities;
 
-RecorderOpenFaceParameters::RecorderOpenFaceParameters(std::vector<std::string> &arguments, bool sequence, bool from_webcam, float fx, float fy, float cx, float cy, double fps_vid_out)
+RecorderOpenFaceParameters::RecorderOpenFaceParameters(std::vector<std::string> &arguments, bool sequence, bool from_webcam, float fx, float fy, float cx, float cy, double fps_vid_out, int streaming_port)
 {
 
 	this->is_sequence = sequence;
@@ -46,6 +46,8 @@ RecorderOpenFaceParameters::RecorderOpenFaceParameters(std::vector<std::string> 
 	this->fy = fy;
 	this->cx = cx;
 	this->cy = cy;
+
+	this->streaming_port = streaming_port;
 
 	if(fps_vid_out > 0)
 	{
@@ -157,7 +159,7 @@ RecorderOpenFaceParameters::RecorderOpenFaceParameters(std::vector<std::string> 
 
 RecorderOpenFaceParameters::RecorderOpenFaceParameters(bool sequence, bool is_from_webcam, bool output_2D_landmarks, bool output_3D_landmarks,
 	bool output_model_params, bool output_pose, bool output_AUs, bool output_gaze, bool output_hog, bool output_tracked,
-	bool output_aligned_faces, bool record_bad, float fx, float fy, float cx, float cy, double fps_vid_out)
+	bool output_aligned_faces, bool record_bad, float fx, float fy, float cx, float cy, double fps_vid_out, int streaming_port)
 {
 	this->is_sequence = sequence;
 	this->is_from_webcam = is_from_webcam;
@@ -165,6 +167,8 @@ RecorderOpenFaceParameters::RecorderOpenFaceParameters(bool sequence, bool is_fr
 	this->fy = fy;
 	this->cx = cx;
 	this->cy = cy;
+
+	this->streaming_port = streaming_port;
 
 	if (fps_vid_out > 0)
 	{

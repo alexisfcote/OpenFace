@@ -53,10 +53,11 @@ namespace Utilities
 	public:
 
 		// Constructors
-		RecorderOpenFaceParameters(std::vector<std::string> &arguments, bool sequence, bool is_from_webcam, float fx = -1, float fy = -1, float cx = -1, float cy = -1, double fps_vid_out = 30);
+		RecorderOpenFaceParameters(std::vector<std::string> &arguments, bool sequence, bool is_from_webcam, float fx = -1, float fy = -1, float cx = -1, float cy = -1, 
+			double fps_vid_out = 30, int streaming_port = 5555);
 		RecorderOpenFaceParameters(bool sequence, bool is_from_webcam, bool output_2D_landmarks, bool output_3D_landmarks,
 			bool output_model_params, bool output_pose, bool output_AUs, bool output_gaze, bool output_hog, bool output_tracked,
-			bool output_aligned_faces, bool record_bad = true, float fx = -1, float fy = -1, float cx = -1, float cy = -1, double fps_vid_out = 30);
+			bool output_aligned_faces, bool record_bad = true, float fx = -1, float fy = -1, float cx = -1, float cy = -1, double fps_vid_out = 30, int streaming_port = 5555);
 
 		bool isSequence() const { return is_sequence; }
 		bool isFromWebcam() const { return is_from_webcam; }
@@ -80,6 +81,8 @@ namespace Utilities
 		float getFy() const { return fy; }
 		float getCx() const { return cx; }
 		float getCy() const { return cy; }
+
+		int getStreamingPort() const { return streaming_port; }
 
 		void setOutputAUs(bool output_AUs) { this->output_AUs = output_AUs; }
 		void setOutputGaze(bool output_gaze) { this->output_gaze = output_gaze; }
@@ -115,6 +118,7 @@ namespace Utilities
 
 		// Camera parameters for recording in the meta file;
 		float fx, fy, cx, cy;
+		int streaming_port;
 
 	};
 
