@@ -58,8 +58,6 @@
 	#include "json.hpp"
 	#undef nullptr
 	using json = nlohmann::json;
-#else
-	#include <thread>
 #endif
 
 namespace Utilities
@@ -203,9 +201,8 @@ namespace Utilities
 #else
 		std::thread video_writing_thread;
 		std::thread aligned_writing_thread;
-#endif
 
-
+#endif // _WIN32
 	};
 }
 #endif // RECORDER_OPENFACE_H
