@@ -176,6 +176,7 @@ namespace OpenFaceOffline
             gaze_analyser = new GazeAnalyserManaged();
 
             textBoxStreamingPort.Text = streaming_port.ToString();
+            StreamingStatus.Text = "Off";
 
         }
 

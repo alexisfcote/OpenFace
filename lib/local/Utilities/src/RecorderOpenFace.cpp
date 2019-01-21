@@ -36,6 +36,8 @@
 // For sorting
 #include <algorithm>
 
+#include <vector>
+
 // File manipulation
 #include <fstream>
 #include <sstream>
@@ -217,6 +219,11 @@ void RecorderOpenFace::PrepareRecording(const std::string& in_filename)
 	this->aligned_writing_thread_started = false;
 
 	#ifdef _WIN32 
+	for (size_t i = 0; i < 20; i++)
+	{
+		filters.push_back(filter::Filter(0.95));
+	}
+
 	#endif
 }
 

@@ -50,6 +50,7 @@
 #include "SVM_dynamic_lin.h"
 #include "PDM.h"
 #include "FaceAnalyserParameters.h"
+#include "Filter.h"
 
 namespace FaceAnalysis
 {
@@ -111,6 +112,9 @@ private:
 
 	// Where the predictions are kept
 	std::vector<std::pair<std::string, double>> AU_predictions_reg;
+	std::vector<std::pair<std::string, double>> AU_predictions_reg_filtered;
+	std::vector<std::pair<std::string, filter::Filter>> AU_predictions_reg_filters;
+
 	std::vector<std::pair<std::string, double>> AU_predictions_class;
 
 	std::vector<std::pair<std::string, double>> AU_predictions_combined;

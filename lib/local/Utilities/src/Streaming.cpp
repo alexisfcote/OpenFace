@@ -1,4 +1,4 @@
-#include "streaming.h"
+#include "Streaming.h"
 
 // Streaming.cpp : Defines the entry point for the console application.
 //
@@ -56,12 +56,6 @@ namespace streaming {
 			WSACleanup();
 			return 1;
 		}
-		return 0;
-	}
-
-
-	int main()
-	{
 		return 0;
 	}
 }

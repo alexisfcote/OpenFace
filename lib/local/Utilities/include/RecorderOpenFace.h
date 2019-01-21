@@ -51,6 +51,8 @@
 #ifdef _WIN32 
 	// streaming only available on Windows
 	#include "streaming.h"
+	#include "Filter.h"
+
 	// fix nullptr
 	#define nullptr __nullptr
 	#include "json.hpp"
@@ -193,12 +195,15 @@ namespace Utilities
 		cv::Mat aligned_face;
 		ConcurrentQueue<std::pair<std::string, cv::Mat> > aligned_face_queue;
 
+		std::thread video_writing_thread;
+		std::thread aligned_writing_thread;
+
 #ifdef _WIN32 
 		// For streaming data
 		streaming::Streaming stream;
+		//filter::Filter filters[20];
+		std::vector<filter::Filter>  filters;
 #endif // _WIN32
-		std::thread video_writing_thread;
-		std::thread aligned_writing_thread;
 
 	};
 }

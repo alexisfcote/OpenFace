@@ -21,6 +21,9 @@ namespace streaming {
 		bool isOpen = FALSE;
 		int Streaming::init(int port);
 		int SendMsg(std::string msg);
+
+	private:
 	};
+
 }
 #endif // __STREAMING__

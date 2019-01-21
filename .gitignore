@@ -102,3 +102,5 @@ lib/local/CppInerop/Debug/
 *.user
 lib/local/LandmarkDetector/model/patch_experts
 .vscode/
+*log
+*.*db
