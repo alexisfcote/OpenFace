@@ -183,10 +183,18 @@ int main(int argc, char **argv)
 		}
 
 		// Detect landmarks around detected faces
-		int face_det = 0;
-		// perform landmark detection for every face detected
+		size_t largest_face = 0;
+
 		for (size_t face = 0; face < face_detections.size(); ++face)
 		{
+			if (face_detections[face].area > face_detections[largest_face].area) {
+				largest_face = face;
+			}
+		}
+
+		size_t face = largest_face;
+
+		// perform landmark detection for largest face only
 
 			// if there are multiple detections go through them
 			bool success = LandmarkDetector::DetectLandmarksInImage(rgb_image, face_detections[face], face_model, det_parameters, grayscale_image);
@@ -236,7 +244,7 @@ int main(int argc, char **argv)
 			open_face_rec.SetObservationFaceID(face);
 			open_face_rec.WriteObservation();
 
-		}
+		
 		if (face_detections.size() > 0)
 		{
 			visualizer.ShowObservation();

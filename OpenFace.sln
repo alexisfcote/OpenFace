@@ -39,11 +39,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppInerop", "lib\local\CppI
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CameraEnumerator", "lib\3rdParty\CameraEnumerator\CameraEnumerator.vcxproj", "{50B7D4BF-E33B-41D0-AA89-76BBA57BF5CC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Armadillo", "lib\local\armadillo\armadillo.vcxproj", "{B234C52E-9B98-475E-A35B-96FA31C3FAB5}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8E741EA2-9386-4CF2-815E-6F9B08991EAC} = {8E741EA2-9386-4CF2-815E-6F9B08991EAC}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -164,14 +159,6 @@ Global
 		{50B7D4BF-E33B-41D0-AA89-76BBA57BF5CC}.Release|Win32.Build.0 = Release|Win32
 		{50B7D4BF-E33B-41D0-AA89-76BBA57BF5CC}.Release|x64.ActiveCfg = Release|x64
 		{50B7D4BF-E33B-41D0-AA89-76BBA57BF5CC}.Release|x64.Build.0 = Release|x64
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5}.Debug|Win32.Build.0 = Debug|Win32
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5}.Debug|x64.ActiveCfg = Debug|x64
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5}.Debug|x64.Build.0 = Debug|x64
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5}.Release|Win32.ActiveCfg = Release|Win32
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5}.Release|Win32.Build.0 = Release|Win32
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5}.Release|x64.ActiveCfg = Release|x64
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -191,6 +178,5 @@ Global
 		{A4760F41-2B1F-4144-B7B2-62785AFFE79B} = {E59CF005-539F-484F-9AA6-9F08AC2DB31E}
 		{78196985-EE54-411F-822B-5A23EDF80642} = {652CCE53-4997-4B43-9A99-28D075199C99}
 		{50B7D4BF-E33B-41D0-AA89-76BBA57BF5CC} = {652CCE53-4997-4B43-9A99-28D075199C99}
-		{B234C52E-9B98-475E-A35B-96FA31C3FAB5} = {652CCE53-4997-4B43-9A99-28D075199C99}
 	EndGlobalSection
 EndGlobal

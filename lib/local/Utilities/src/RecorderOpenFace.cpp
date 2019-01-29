@@ -51,6 +51,7 @@
 // For threading
 #include <chrono>
 
+
 using namespace boost::filesystem;
 
 using namespace Utilities;
@@ -418,8 +419,17 @@ void RecorderOpenFace::WriteObservation()
 	js["timestamp"] = timestamp;
 	js["landmark_detection_success"] = landmark_detection_success;
 	js["landmark_detection_confidence"] = landmark_detection_confidence;
-	js["head_pose"] = head_pose[0];
-	js["gaze_angle"] = gaze_angle[0];
+
+	js["head_pose"]["x"] = head_pose[0];
+	js["head_pose"]["y"] = head_pose[1];
+	js["head_pose"]["z"] = head_pose[2];
+	js["head_pose"]["Rx"] = head_pose[3];
+	js["head_pose"]["Ry"] = head_pose[4];
+	js["head_pose"]["Rz"] = head_pose[5];
+
+	js["gaze_angle"]["x"] = gaze_angle[0];
+	js["gaze_angle"]["y"] = gaze_angle[1];
+
 	for (auto au_intensity : au_intensities)
 	{
 		js["au_intensities"][au_intensity.first] = au_intensity.second;

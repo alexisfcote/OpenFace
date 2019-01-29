@@ -593,7 +593,7 @@ namespace OpenFaceOffline
 
                     YawLabel.Content = yaw + "°";
                     RollLabel.Content = roll + "°";
-                    PitchLabel.Content = pitch + "°";
+                    PitchLabel.Content = pitch + "°";                    
 
                     XPoseLabel.Content = (int)pose[0] + " mm";
                     YPoseLabel.Content = (int)pose[1] + " mm";

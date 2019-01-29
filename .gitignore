@@ -104,3 +104,6 @@ lib/local/LandmarkDetector/model/patch_experts
 .vscode/
 *log
 *.*db
+gui/HeadPose-live/obj/
+gui/OpenFaceOffline/OpenFaceOffline_TemporaryKey.pfx
+
