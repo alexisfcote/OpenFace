@@ -160,7 +160,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Filter.cpp" />
     <ClCompile Include="src\ImageCapture.cpp" />
     <ClCompile Include="src\RecorderCSV.cpp" />
     <ClCompile Include="src\RecorderHOG.cpp" />
@@ -173,7 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ConcurrentQueue.h" />
-    <ClInclude Include="include\Filter.h" />
     <ClInclude Include="include\ImageCapture.h" />
     <ClInclude Include="include\ImageManipulationHelpers.h" />
     <ClInclude Include="include\json.hpp" />

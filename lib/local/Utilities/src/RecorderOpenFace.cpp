@@ -219,13 +219,6 @@ void RecorderOpenFace::PrepareRecording(const std::string& in_filename)
 	this->tracked_writing_thread_started = false;
 	this->aligned_writing_thread_started = false;
 
-	#ifdef _WIN32 
-	for (size_t i = 0; i < 20; i++)
-	{
-		filters.push_back(filter::Filter(0.95));
-	}
-
-	#endif
 }
 
 RecorderOpenFace::RecorderOpenFace(const std::string in_filename, const RecorderOpenFaceParameters& parameters, std::vector<std::string>& arguments):video_writer(), params(parameters)

@@ -322,14 +322,6 @@ void FaceAnalyser::PredictStaticAUsAndComputeFeatures(const cv::Mat& frame, cons
 	}
 	
 	AU_predictions_reg = AU_predictions_intensity;
-	AU_predictions_reg_filtered = AU_predictions_intensity;
-
-	int num_au = 0;
-	for each (auto au in AU_predictions_reg_filtered)
-	{
-		AU_predictions_reg_filters.push_back(std::pair<std::string, filter::Filter>(au.first, filter::Filter(ALPHAFILTER, au.second)));
-	}
-
 	AU_predictions_class = AU_predictions_occurence;
 
 }

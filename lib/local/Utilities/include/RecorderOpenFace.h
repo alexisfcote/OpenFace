@@ -51,7 +51,6 @@
 #ifdef _WIN32 
 	// streaming only available on Windows
 	#include "streaming.h"
-	#include "Filter.h"
 
 	// fix nullptr
 	#define nullptr __nullptr
@@ -202,7 +201,6 @@ namespace Utilities
 		// For streaming data
 		streaming::Streaming stream;
 		//filter::Filter filters[20];
-		std::vector<filter::Filter>  filters;
 #endif // _WIN32
 
 	};
