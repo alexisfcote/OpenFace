@@ -107,3 +107,4 @@ lib/local/LandmarkDetector/model/patch_experts
 gui/HeadPose-live/obj/
 gui/OpenFaceOffline/OpenFaceOffline_TemporaryKey.pfx
 
+.vs
